@@ -4,7 +4,8 @@
 DEFAULT_PORT="7890"
 
 # 2. 提示用户输入，并将输入内容存入变量 USER_PORT
-read -p "请输入代理端口号 (直接回车将使用默认端口 ${DEFAULT_PORT}): " USER_PORT
+echo -n "请输入代理端口号 (直接回车将使用默认端口 ${DEFAULT_PORT}): "
+read USER_PORT
 
 # 3. 判断用户是否输入了内容。如果没输入，则使用默认端口；否则使用用户输入的端口。
 #    ${VARIABLE:-default_value} 是一个简便写法
@@ -14,6 +15,7 @@ echo "代理端口将被设置为: $PORT"
 echo "----------------------------------------"
 
 # 重命名文件夹
+chmod 777 clash
 cd ..
 mv clash_for_server ~/.clash
 
@@ -30,7 +32,7 @@ clash_on() {
     export no_proxy=127.0.0.1,localhost
 
     # 3. 打印统一的成功信息
-    echo -e "\033[32m[✓] Clash 已启动，系统代理已开启 (端口: $PORT)\033[0m"
+    echo -e "\\033[32m[✓] Clash 已启动，系统代理已开启 (端口: $PORT)\\033[0m"
 }
 
 clash_off() {
@@ -43,7 +45,7 @@ clash_off() {
     unset no_proxy
 
     # 3. 打印统一的关闭信息
-    echo -e "\033[31m[×] Clash 已停止，系统代理已关闭\033[0m"
+    echo -e "\\033[31m[×] Clash 已停止，系统代理已关闭\\033[0m"
 }
 # clash config
 EOF
