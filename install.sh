@@ -15,7 +15,7 @@ echo "----------------------------------------"
 
 # 重命名文件夹
 cd ..
-mv $(basename $(pwd)) ~/.clash
+mv clash_for_server ~/.clash
 
 # Clash 配置内容
 read -r -d '' CLASH_CONFIG <<EOF
